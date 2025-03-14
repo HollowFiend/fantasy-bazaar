@@ -1,0 +1,223 @@
+html, body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  color: white;
+  /* Use flex for vertical centering if needed. Switch to auto if you want scroll. */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-x: hidden; /* Hide horizontal overflow */
+  overflow-y: auto;   /* Allow scrolling if content overflows vertically */
+  box-sizing: border-box;
+}
+
+/* Page Container */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Store Header */
+.store-header {
+  margin-top: 40px;
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Store List Container */
+.store-list {
+  width: 100%;
+  max-width: 1200px;
+  background: #171717;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 255, 117, 0.3);
+  overflow-x: auto;
+}
+
+/* Table Styling */
+.store-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+  table-layout: auto;
+  text-align: left;
+}
+
+/* Table Header */
+.store-table th {
+  background: #252525;
+  padding: 12px;
+  border-bottom: 2px solid #00ff75;
+  white-space: nowrap;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Sort Arrows */
+.sort-arrow {
+  font-size: 12px;
+  margin-left: 5px;
+  color: #00ff75;
+}
+
+/* Table Row */
+.store-table td {
+  padding: 12px;
+  border-bottom: 1px solid #00ff75;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Alternating Row Colors */
+.store-table tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Item Image */
+.item-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  object-fit: cover;
+  border: 2px solid #00ff75;
+}
+
+/* Toggle Details Icon */
+.toggle-icon {
+  cursor: pointer;
+  color: #00ff75;
+  font-size: 18px;
+  transition: transform 0.3s;
+}
+
+.toggle-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Expanded Row Details */
+.item-details {
+  background: #252525;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  display: none;
+}
+
+.item-details.expanded {
+  display: table-row;
+}
+
+/* Quantity and Cart */
+.item-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.item-cart input {
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #00ff75;
+  background: #252525;
+  color: white;
+  border-radius: 5px;
+}
+
+.add-to-cart {
+  padding: 6px 12px;
+  background-color: #00ff75;
+  border: none;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.add-to-cart:hover {
+  background-color: #37ff9e;
+  transform: scale(1.05);
+}
+
+/* Filter Bar Container */
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  padding: 10px;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+/* Filter Elements */
+.search-bar,
+.filter-dropdown,
+.price-range,
+.stock-filter {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #00ff75;
+  background: #252525;
+  color: white;
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-bar {
+  flex: 2;
+}
+
+/* Focus States */
+.search-bar:focus,
+.filter-dropdown:focus,
+.price-range:focus,
+.stock-filter:focus {
+  outline: 2px solid #00ff75;
+  border-color: #37ff9e;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .filter-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .search-bar,
+  .filter-dropdown,
+  .price-range,
+  .stock-filter {
+      width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .item-cart {
+      flex-direction: column;
+  }
+
+  .item-cart input {
+      width: 100%;
+  }
+}
